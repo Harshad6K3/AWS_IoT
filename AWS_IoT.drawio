@@ -1,0 +1,73 @@
+<mxfile host="app.diagrams.net" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36" version="29.2.4">
+  <diagram name="1NCE to AWS Sensor Ingestion" id="OLeseTV7iBv77GYSHQtU">
+    <mxGraphModel dx="1426" dy="743" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="jdFkIyrr8oVymq91LSf1-1" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="Sensors" vertex="1">
+          <mxGeometry height="60" width="140" x="20" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-2" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffe6cc;strokeColor=#d79b00;" value="1NCE Platform" vertex="1">
+          <mxGeometry height="60" width="160" x="200" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-3" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="API Gateway\n(Auth + Validation + WAF)" vertex="1">
+          <mxGeometry height="100" width="220" x="420" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Lambda Ingestion\nController" vertex="1">
+          <mxGeometry height="70" width="200" x="700" y="360" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-5" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="Kinesis Data Streams\n(Decoupling + Replay)" vertex="1">
+          <mxGeometry height="100" width="240" x="960" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-6" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="Processing Layer\nLambda / Spark Streaming\nValidation + Enrichment" vertex="1">
+          <mxGeometry height="110" width="280" x="1240" y="340" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-7" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="S3 Raw Zone\n(Immutable Storage)" vertex="1">
+          <mxGeometry height="70" width="200" x="1600" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-8" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="S3 Curated Zone\n(Analytics Ready)" vertex="1">
+          <mxGeometry height="70" width="200" x="1600" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-9" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="DynamoDB\n(Idempotency + Device State)" vertex="1">
+          <mxGeometry height="80" width="220" x="1600" y="440" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-10" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="Athena / Redshift\nDashboards / ML" vertex="1">
+          <mxGeometry height="90" width="240" x="1860" y="350" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-11" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" value="DLQ\n(SQS + Replay Pipelines)" vertex="1">
+          <mxGeometry height="90" width="260" x="960" y="480" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-12" edge="1" parent="1" source="jdFkIyrr8oVymq91LSf1-1" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;" target="jdFkIyrr8oVymq91LSf1-2">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-13" edge="1" parent="1" source="jdFkIyrr8oVymq91LSf1-2" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;" target="jdFkIyrr8oVymq91LSf1-3">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-14" edge="1" parent="1" source="jdFkIyrr8oVymq91LSf1-3" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;" target="jdFkIyrr8oVymq91LSf1-4">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-15" edge="1" parent="1" source="jdFkIyrr8oVymq91LSf1-4" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;" target="jdFkIyrr8oVymq91LSf1-5">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-16" edge="1" parent="1" source="jdFkIyrr8oVymq91LSf1-5" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;" target="jdFkIyrr8oVymq91LSf1-6">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-17" edge="1" parent="1" source="jdFkIyrr8oVymq91LSf1-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;" target="jdFkIyrr8oVymq91LSf1-7">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-18" edge="1" parent="1" source="jdFkIyrr8oVymq91LSf1-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;" target="jdFkIyrr8oVymq91LSf1-8">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-19" edge="1" parent="1" source="jdFkIyrr8oVymq91LSf1-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;" target="jdFkIyrr8oVymq91LSf1-9">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-20" edge="1" parent="1" source="jdFkIyrr8oVymq91LSf1-8" style="edgeStyle=orthogonalEdgeStyle;rounded=1;endArrow=block;" target="jdFkIyrr8oVymq91LSf1-10">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="jdFkIyrr8oVymq91LSf1-21" edge="1" parent="1" source="jdFkIyrr8oVymq91LSf1-6" style="edgeStyle=orthogonalEdgeStyle;rounded=1;dashed=1;endArrow=block;" target="jdFkIyrr8oVymq91LSf1-11">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
